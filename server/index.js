@@ -2,6 +2,8 @@ import express from 'express'
 import cors from 'cors'
 import { createGameRouter } from './routes/games.js'
 import { GameModel } from './models/games.js'
+import { createUserRouter } from './routes/users.js'
+import { UserModel } from './models/users.js'
 
 const PORT = process.env.PORT ?? 3000
 
@@ -25,5 +27,4 @@ app.get('/', (req, res) => {
 })
 
 app.use('/games', createGameRouter({ gameModel: GameModel }))
-
-// app.use('/users', createUserRouter({ userModel: UserModel }))
+app.use('/users', createUserRouter({ userModel: UserModel }))
