@@ -4,6 +4,8 @@ import { createGameRouter } from './routes/games.js'
 import { GameModel } from './models/games.js'
 import { createUserRouter } from './routes/users.js'
 import { UserModel } from './models/users.js'
+import { createUserGameRouter } from './routes/userGames.js'
+import { UserGameModel } from './models/userGames.js'
 
 const PORT = process.env.PORT ?? 3000
 
@@ -26,5 +28,6 @@ app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
 
-app.use('/games', createGameRouter({ gameModel: GameModel }))
 app.use('/users', createUserRouter({ userModel: UserModel }))
+app.use('/games', createGameRouter({ gameModel: GameModel }))
+app.use('/userGames', createUserGameRouter({ userGameModel: UserGameModel }))

@@ -11,4 +11,3 @@ export const createUserRouter = ({ userModel }) => {
 
   return usersRoutes
 }
-
